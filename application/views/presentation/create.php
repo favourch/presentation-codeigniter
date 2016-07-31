@@ -7,25 +7,22 @@
 		<META http-equiv="expires" content="0">
 		<META HTTP-EQUIV="Expires" CONTENT="Tue, 01 Jan 1980 1:00:00 GMT">
 		<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-		<title>Strut - Beta</title>
+		<title>Presentation Creator - Strut</title>
 		<!-- build:css styles/main.css -->
-		<link rel="stylesheet" href="components/bootstrap/css/bootstrap.css"></link>
-		<link rel="stylesheet" href="components/bootstrap/css/bootstrap-responsive.css"></link>
-		<link href='preview_export/css/web-fonts.css' rel='stylesheet' type='text/css'></link>
-		<link href='components/etch/etch.css' rel='stylesheet' type='text/css'></link>
-		<link href='components/spectrum/spectrum.css' rel='stylesheet' type='text/css'></link>
-		<link rel="stylesheet" type="text/css" href="styles/close-btn.css" />
-		<link rel="stylesheet" type="text/css" href="styles/main.css" />
-		<link rel="stylesheet" href="preview_export/css/themes/default-reset.css"></link>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>public/components/bootstrap/css/bootstrap.css"></link>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>public/components/bootstrap/css/bootstrap-responsive.css"></link>
+		<link href='<?php echo base_url(); ?>public/preview_export/css/web-fonts.css' rel='stylesheet' type='text/css'></link>
+		<link href='<?php echo base_url(); ?>public/components/etch/etch.css' rel='stylesheet' type='text/css'></link>
+		<link href='<?php echo base_url(); ?>public/components/spectrum/spectrum.css' rel='stylesheet' type='text/css'></link>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/styles/close-btn.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/styles/main.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>public/preview_export/css/themes/default-reset.css"></link>
 		<!-- endbuild -->
 
 		<!-- can't build this in due to font imports -->
-		<link rel="stylesheet" href="preview_export/reveal/css/theme/default.css"></link>
-
-		<link rel="shortcut icon" href="img/strut-icon.png">
-		<link rel="apple-touch-icon-precomposed" href="img/strut-touch.png">
-		<link rel="stylesheet" type="text/css" href="styles/built.css"></link>
-		<script type="text/javascript" src="preview_export/download_assist/swfobject.js"></script>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>public/preview_export/reveal/css/theme/default.css"></link>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/styles/built.css"></link>
+		<script type="text/javascript" src="<?php echo base_url(); ?>public/preview_export/download_assist/swfobject.js"></script>
 	</head>
 	<body class="bg-default">
 		<!--[IF IE]>
@@ -123,7 +120,7 @@
 		}
 		</script>
 		<!-- build:js scripts/amd-app.js -->
-    	<script type="text/javascript" data-main="scripts/main" src="scripts/libs/require.js"></script>
+    	<script type="text/javascript" data-main="<?php echo base_url(); ?>public/scripts/main" src="<?php echo base_url(); ?>public/scripts/libs/require.js"></script>
 		<!-- endbuild -->
 		<div id="modals">
 		</div>
