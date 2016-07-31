@@ -1,89 +1,131 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<META HTTP-EQUIV="Cache-Control" CONTENT="max-age=0">
+		<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+		<META http-equiv="expires" content="0">
+		<META HTTP-EQUIV="Expires" CONTENT="Tue, 01 Jan 1980 1:00:00 GMT">
+		<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+		<title>Strut - Beta</title>
+		<!-- build:css styles/main.css -->
+		<link rel="stylesheet" href="components/bootstrap/css/bootstrap.css"></link>
+		<link rel="stylesheet" href="components/bootstrap/css/bootstrap-responsive.css"></link>
+		<link href='preview_export/css/web-fonts.css' rel='stylesheet' type='text/css'></link>
+		<link href='components/etch/etch.css' rel='stylesheet' type='text/css'></link>
+		<link href='components/spectrum/spectrum.css' rel='stylesheet' type='text/css'></link>
+		<link rel="stylesheet" type="text/css" href="styles/close-btn.css" />
+		<link rel="stylesheet" type="text/css" href="styles/main.css" />
+		<link rel="stylesheet" href="preview_export/css/themes/default-reset.css"></link>
+		<!-- endbuild -->
 
-	<style type="text/css">
+		<!-- can't build this in due to font imports -->
+		<link rel="stylesheet" href="preview_export/reveal/css/theme/default.css"></link>
 
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
+		<link rel="shortcut icon" href="img/strut-icon.png">
+		<link rel="apple-touch-icon-precomposed" href="img/strut-touch.png">
+		<link rel="stylesheet" type="text/css" href="styles/built.css"></link>
+		<script type="text/javascript" src="preview_export/download_assist/swfobject.js"></script>
+	</head>
+	<body class="bg-default">
+		<!--[IF IE]>
+			<div class="container">
+			<div class="alert alert-success">
+				Internet Explorer does not support the 3-D transitions required by <strong>Strut</strong>.
+				<br/>
+				<br/>
+				<strong>Strut</strong> currenly only works in <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a>, <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> and <a href="http://support.apple.com/kb/DL1531">Safari</a>.
+				<br/>
+				We do hope to support IE 10 sometime in the future.
+				<br/><br/>
+				Sorry for the inconvenience.
+			</div>
+			</div>
+		<![endif]-->
+		<script>
+		window.isOptimized = false;
+		if (!Function.prototype.bind) {
+		  Function.prototype.bind = function (oThis) {
+		    if (typeof this !== "function") {
+		      // closest thing possible to the ECMAScript 5 internal IsCallable function
+		      throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+		    }
 
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
+		    var aArgs = Array.prototype.slice.call(arguments, 1), 
+		        fToBind = this, 
+		        fNOP = function () {},
+		        fBound = function () {
+		          return fToBind.apply(this instanceof fNOP && oThis
+		                                 ? this
+		                                 : oThis,
+		                               aArgs.concat(Array.prototype.slice.call(arguments)));
+		        };
 
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
+		    fNOP.prototype = this.prototype;
+		    fBound.prototype = new fNOP();
 
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
+		    return fBound;
+		  };
+		}
 
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
+		if (!Array.prototype.some) {
+		  Array.prototype.some = function(fun /*, thisp */) {
+		    'use strict';
 
-	#body {
-		margin: 0 15px 0 15px;
-	}
+		    if (this == null) {
+		      throw new TypeError();
+		    }
 
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
+		    var thisp, i,
+		        t = Object(this),
+		        len = t.length >>> 0;
+		    if (typeof fun !== 'function') {
+		      throw new TypeError();
+		    }
 
-	#container {
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
-</head>
-<body>
+		    thisp = arguments[1];
+		    for (i = 0; i < len; i++) {
+		      if (i in t && fun.call(thisp, t[i], i, t)) {
+		        return true;
+		      }
+		    }
 
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+		    return false;
+		  };
+		}
 
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+		if (!Array.prototype.forEach) {
+		    Array.prototype.forEach = function (fn, scope) {
+		        'use strict';
+		        var i, len;
+		        for (i = 0, len = this.length; i < len; ++i) {
+		            if (i in this) {
+		                fn.call(scope, this[i], i, this);
+		            }
+		        }
+		    };
+		}
 
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
+		var head = document.getElementsByTagName('head')[0];
+		function appendScript(src) {
+			var s = document.createElement("script");
+    		s.type = "text/javascript";
+    		s.src = src;
+    		head.appendChild(s);
+		}
 
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
-
-</body>
+		if (window.location.href.indexOf("preview=true") == -1) {
+			window.dlSupported = 'download' in document.createElement('a');
+			window.hasFlash = swfobject.hasFlashPlayerVersion(9);
+			if (!dlSupported && window.hasFlash) {
+				appendScript('preview_export/download_assist/downloadify.min.js');
+			}
+		}
+		</script>
+		<!-- build:js scripts/amd-app.js -->
+    	<script type="text/javascript" data-main="scripts/main" src="scripts/libs/require.js"></script>
+		<!-- endbuild -->
+		<div id="modals">
+		</div>
+	</body>
 </html>
